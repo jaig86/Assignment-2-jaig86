@@ -1,0 +1,5 @@
+(1) The basic allocator can fail even when there is enough total free memory because the free space may be fragmented into smaller blocks. Without coalescing, adjacent free blocks remain separate.
+
+(2) The throughput plot shows that the basic allocator (t.out) has slightly better throughput for the smaller allocation sizes of 32 and 64 bytes, while the coalescing allocator (t2.out) has clearly better throughput for the larger allocation sizes of 128 and 256 bytes.
+
+(3) The fail-rate plot shows that the coalescing allocator (t2.out) has a much better failure rate. Its failure rate stays close to 0.10 across allocation sizes from 32 to 256 bytes. The basic allocator starts near 0.10 for 32-byte allocations but its failure rate increases as the maximum allocation size increases, reaching about 0.61 for 256-byte allocations.
